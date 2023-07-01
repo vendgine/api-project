@@ -1,0 +1,54 @@
+{
+    "name": "@vngn/api-starter",
+    "version": "0.0.1",
+    "description": "Vendgine WebAPI Starter package",
+    "type": "module",
+    "target": "web",
+    "scripts": {
+        "start": "npm run serve",
+        "build": "rimraf build && tsc",
+        "build:production": "rimraf build && tsc -p tsconfig.production.json",
+        "serve": "tsc -noEmit && parcel sources/main.html",
+        "prettier": "prettier \"**/*.{yml,yaml,json,md}\" --write",
+        "lint": "eslint --fix --max-warnings 0 \"**/*.{mts,ts}\"",
+        "test": "c8 mocha 'build/tests/**/*.test.mjs'",
+        "prepare": "husky install",
+        "pre-commit": "npm run prettier && npm run lint && npm run build && npm run test"
+    },
+    "author": "Andrei Piontkovskii",
+    "license": "SEE LICENSE IN LICENSE.txt",
+    "devDependencies": {
+        "@vngn/codestyle": "^0.0.15",
+        "@parcel/transformer-sass": "^2.9.3",
+        "@types/chai": "^4.3.5",
+        "@types/common-tags": "^1.8.1",
+        "@types/node": "^20.3.3",
+        "@types/mocha": "^10.0.1",
+        "@types/sinon": "^10.0.15",
+        "@typescript-eslint/eslint-plugin": "^5.60.1",
+        "@typescript-eslint/parser": "^5.60.1",
+        "c8": "^8.0.0",
+        "chai": "^4.3.7",
+        "eslint": "^8.44.0",
+        "eslint-config-prettier": "^8.8.0",
+        "eslint-plugin-import": "^2.27.5",
+        "eslint-plugin-jsdoc": "^46.4.3",
+        "eslint-plugin-simple-import-sort": "^10.0.0",
+        "husky": "^8.0.3",
+        "prettier": "^2.8.8",
+        "mocha": "^10.2.0",
+        "sinon": "^15.2.0",
+        "tslib": "^2.6.0",
+        "typescript": "^5.1.6"
+    },
+    "dependencies": {
+        "common-tags": "^1.8.2",
+        "reflect-metadata": "^0.1.13",
+        "ts-essentials": "^9.3.2",
+        "tsyringe": "^4.8.0"
+    },
+    "optionalDependencies": {
+        "bufferutil": "^4.0.7",
+        "utf-8-validate": "^6.0.3"
+    }
+}
